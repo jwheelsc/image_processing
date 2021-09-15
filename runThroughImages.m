@@ -6,31 +6,31 @@ SEM2 = 'D:\Code\imageAnalysis\images\01_006.JPG';
 SEM3 = 'D:\Code\imageAnalysis\images\01_009.JPG';
 SEM4 = 'D:\Code\imageAnalysis\images\01_012.JPG';
 
-
-imc_1 = 'D:\Code\imageAnalysis\images\im1.JPG';
-imc_2 = 'D:\Code\imageAnalysis\images\im2.JPG';
-imc_3 = 'D:\Code\imageAnalysis\images\im3.JPG';
-imc_4 = 'D:\Code\imageAnalysis\images\im4.JPG';
-imc_5 = 'D:\Code\imageAnalysis\images\im5.JPG';
-imc_6 = 'D:\Code\imageAnalysis\images\im6.JPG';
-imc_7 = 'D:\Code\imageAnalysis\images\im7.JPG';
-imc_8 = 'D:\Code\imageAnalysis\images\im8.JPG';
-imc_9 = 'D:\Code\imageAnalysis\images\im9.JPG';
-imc_10 = 'D:\Code\imageAnalysis\images\im10.JPG';
-imc_11 = 'D:\Code\imageAnalysis\images\im11.JPG';
-imc_12 = 'D:\Code\imageAnalysis\images\im12.JPG';
-imc_13 = 'D:\Code\imageAnalysis\images\im13.JPG';
-imc_14 = 'D:\Code\imageAnalysis\images\im14.JPG';
-imc_15 = 'D:\Code\imageAnalysis\images\im14.JPG';
-
-
-% imArr = {im1,im2,im3,im4}
-% imArr = {imc_1,imc_2,imc_3,imc_4,imc_5,imc_6,imc_7,imc_8,imc_9,imc_10,...
-%     imc_11,imc_12,imc_13,imc_14,imc_15}
-imArr = {'im2'}
+%% choose the image
+% imArr = {'im1','im2','im3','im4','im5','im6','im7','im8','im9','im10',...
+%     'im11','im12','im13','im14','im15'};
+imArr = {'im15'}
+%% choose the options for clipping, saving and creating image histogram
 clipIt = 1;
 saveIt = 1;
+binHist = 0;
+
+opt_1 = [clipIt,saveIt,binHist]
+opt_1_str = {'clipIt','saveIt','binHist'}
+%% How do you want to process the image (1 for yes, 0 for no)
+gam = 0;   
+neg = 0;
+thresh = 0;
+cont_str = 0;
+hstEq = 0;
+conc_conv = 1;
+
+proc_opt = [gam,neg,thresh,cont_str,hstEq,conc_conv]
+proc_opt_str = {'gam','neg','thresh','cont_st','hstEq','conc_conv'}
+
+%%
 
 for i = 1:length(imArr)
-    giveMeImage(imArr{i},clipIt,saveIt)
+    spatialFilts(imArr{i},opt_1_str,opt_1,proc_opt_str,proc_opt)
+    close all
 end
